@@ -1,4 +1,4 @@
-const ESC = "\x1b[";
+const ESC = '\x1b[';
 
 const colorCodes = {
   red: 31,
@@ -10,17 +10,17 @@ const colorCodes = {
   gray: 90,
 } as const;
 
-export const BRAND_NAME = "MANIC";
-export const BRAND_MARK = "ϟ";
-export const BRAND_COLOR = "#F15156";
+export const BRAND_NAME = 'MANIC';
+export const BRAND_MARK = 'ϟ';
+export const BRAND_COLOR = '#F15156';
 
 export const theme = {
   brand: BRAND_COLOR,
-  red: "#F15156",
-  green: "#3FB950",
-  yellow: "#D29922",
-  blue: "#58A6FF",
-  cyan: "#56D4DD",
+  red: '#F15156',
+  green: '#3FB950',
+  yellow: '#D29922',
+  blue: '#58A6FF',
+  cyan: '#56D4DD',
 } as const;
 
 function ansi(code: number, value: string): string {
@@ -28,7 +28,7 @@ function ansi(code: number, value: string): string {
 }
 
 function maybeColor(code: number, value: string): string {
-  if (process.env["NO_COLOR"]) return value;
+  if (process.env['NO_COLOR']) return value;
   return ansi(code, value);
 }
 
@@ -75,67 +75,74 @@ export function brandTitle(suffix?: string): string {
 }
 
 export function divider(width: number = 40): string {
-  return dim("─".repeat(width));
+  return dim('─'.repeat(width));
 }
 
-export type SectionTone = "default" | "build" | "dev" | "production";
+export type SectionTone = 'default' | 'build' | 'dev' | 'production';
 
-export function sectionTitle(title: string, tone: SectionTone = "default"): string {
+export function sectionTitle(
+  title: string,
+  tone: SectionTone = 'default'
+): string {
   const diamond =
-    tone === "build"
-      ? yellow("◆")
-      : tone === "dev"
-        ? cyan("◆")
-        : tone === "production"
-          ? green("◆")
-          : white("◆");
+    tone === 'build'
+      ? yellow('◆')
+      : tone === 'dev'
+        ? cyan('◆')
+        : tone === 'production'
+          ? green('◆')
+          : white('◆');
   return `${diamond} ${bold(white(title))}`;
 }
 
 export function statusPending(label: string): string {
-  return `${dim("○")} ${dim(label)}`;
+  return `${dim('○')} ${dim(label)}`;
 }
 
 export function statusSuccess(label: string): string {
-  return `${green("●")} ${white(label)}`;
+  return `${green('●')} ${white(label)}`;
 }
 
 export function statusError(label: string): string {
-  return `${red("●")} ${white(label)}`;
+  return `${red('●')} ${white(label)}`;
 }
 
 export function hint(label: string, value: string): string {
   return `${dim(label)} ${cyan(value)}`;
 }
 
-export type EventTone = "info" | "success" | "warn" | "error";
+export type EventTone = 'info' | 'success' | 'warn' | 'error';
 
-export function eventLine(source: string, message: string, tone: EventTone = "info"): string {
+export function eventLine(
+  source: string,
+  message: string,
+  tone: EventTone = 'info'
+): string {
   const ts = new Date().toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
   });
   const icon =
-    tone === "success"
-      ? green("●")
-      : tone === "warn"
-        ? yellow("▲")
-        : tone === "error"
-          ? red("✖")
-          : cyan("●");
-  const label = tone === "warn" ? yellow(source) : cyan(source);
+    tone === 'success'
+      ? green('●')
+      : tone === 'warn'
+        ? yellow('▲')
+        : tone === 'error'
+          ? red('✖')
+          : cyan('●');
+  const label = tone === 'warn' ? yellow(source) : cyan(source);
   return `${dim(ts)} ${icon} ${label} ${white(message)}`;
 }
 
 export function isDebugEnabled(): boolean {
-  return process.env["MANIC_DEBUG"] === "1" || process.argv.includes("--debug");
+  return process.env['MANIC_DEBUG'] === '1' || process.argv.includes('--debug');
 }
 
 export function debugLog(source: string, message: string): void {
   if (!isDebugEnabled()) return;
   const scoped = source ? `[${source}] ${message}` : message;
-  console.log(eventLine("debug", scoped, "info"));
+  console.log(eventLine('debug', scoped, 'info'));
 }
 
-export { PromptSession } from "./prompts";
+export { PromptSession } from './prompts';
