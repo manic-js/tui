@@ -8,6 +8,10 @@
     "terminal",
     "tui"
   ],
+  "homepage": "https://github.com/manic-js/tui#readme",
+  "bugs": {
+    "url": "https://github.com/manic-js/tui/issues"
+  },
   "license": "GPL-3.0",
   "author": "Rahuletto",
   "repository": {
@@ -30,9 +34,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {},
-  "homepage": "https://github.com/manic-js/tui#readme",
-  "bugs": {
-    "url": "https://github.com/manic-js/tui/issues"
-  }
+  "dependencies": {}
 }
