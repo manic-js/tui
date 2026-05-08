@@ -1,11 +1,16 @@
-# `@manicjs/tui`
+<img src="https://raw.githubusercontent.com/manic-js/manic/main/demo/assets/wordmark.svg" alt="Manic" width="300" />
 
-Shared terminal UI primitives used by Manic CLI tooling.
+[![npm version](https://img.shields.io/npm/v/%40manicjs%2Ftui?logo=npm)](https://www.npmjs.com/package/@manicjs/tui)
+[![Bun](https://img.shields.io/badge/runtime-Bun-black?logo=bun)](https://bun.sh)
+[![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue)](https://opensource.org/licenses/GPL-3.0)
+
+The fastest framework for React.
 
 ## Documentation
 
 - Website: [manicjs.tech](https://www.manicjs.tech/)
-- CLI docs: [manicjs.tech/docs/cli](https://www.manicjs.tech/docs/cli)
+- Docs: [manicjs.tech/docs](https://www.manicjs.tech/docs)
+- Package docs: [https://www.manicjs.tech/docs/cli](https://www.manicjs.tech/docs/cli)
 
 ## Install
 
