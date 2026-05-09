@@ -19,8 +19,9 @@
     "url": "https://github.com/manic-js/tui"
   },
   "files": [
-    "src/**/*",
-    "README.md"
+    "src",
+    "README.md",
+    "LICENSE"
   ],
   "type": "module",
   "main": "./src/index.ts",
